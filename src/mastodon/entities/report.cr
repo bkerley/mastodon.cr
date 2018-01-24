@@ -5,7 +5,7 @@ module Mastodon
     class Report
 
       JSON.mapping({
-        id: Int64,
+        id: String,
         action_taken: Bool
       })
 

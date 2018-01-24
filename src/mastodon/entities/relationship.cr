@@ -5,7 +5,7 @@ module Mastodon
     class Relationship
 
       JSON.mapping({
-        id: Int64,
+        id: String,
         following: Bool,
         followed_by: Bool,
         blocking: Bool,

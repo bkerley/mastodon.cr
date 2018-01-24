@@ -5,13 +5,13 @@ module Mastodon
     class Attachment
 
       JSON.mapping({
-        id: Int64,
+        id: String,
         type: String, # "image", "video", "gifv"
         url: String,
         remote_url: { type: String, nilable: true },
         preview_url: String,
         text_url: { type: String, nilable: true },
-        meta: { type: Hash(String, Attachment::MetaData), nilable: true },
+        # meta: { type: Hash(String, Attachment::MetaData), nilable: true },
       })
 
       def_equals id

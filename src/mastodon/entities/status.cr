@@ -10,7 +10,7 @@ module Mastodon
     class Status
 
       JSON.mapping({
-        id: Int64,
+        id: String,
         uri: String,
         url: String,
         account: Entities::Account,

@@ -5,7 +5,7 @@ module Mastodon
     class Account
 
       JSON.mapping({
-        id: Int64,
+        id: String,
         username: String,
         acct: String,
         display_name: String,

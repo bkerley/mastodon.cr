@@ -8,7 +8,7 @@ module Mastodon
         url: String,
         username: String,
         acct: String,
-        id: Int64,
+        id: String,
       })
 
     end
