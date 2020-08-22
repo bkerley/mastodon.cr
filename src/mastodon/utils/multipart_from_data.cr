@@ -1,15 +1,15 @@
-require "http/multipart"
+require "http/formdata/builder"
 
 module Mastodon
   module Utils
     class MultipartFormData
-      @multipart : HTTP::Multipart::Builder
+      @multipart : HTTP::FormData::Builder
 
       getter io : IO::Memory
 
       def initialize
         @io = IO::Memory.new
-        @multipart = HTTP::Multipart::Builder.new(@io)
+        @multipart = HTTP::FormData::Builder.new(@io)
       end
 
       def add(name, string)
@@ -17,9 +17,7 @@ module Mastodon
       end
 
       def add_file(name, filename, file : File)
-        image_io = IO::Memory.new
-        IO.copy(file, image_io)
-        @multipart.body_part content_disposition_header(name, filename), image_io.to_slice
+        @multipart.file name, file
       end
 
       def finish
